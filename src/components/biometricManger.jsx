@@ -1,36 +1,51 @@
 import React from 'react';
-import {useTelegram} from "../hooks/useTelegram.js";
+import { useTelegram } from "../hooks/useTelegram.js";
 
-function BiometricManger() {
+function BiometricManager() {
     const tg = useTelegram();
 
     if (!tg) return null;
 
-
-    const authHandler =   async () => {
+    const authHandler = async () => {
         const biometric = tg.BiometricManager;
+
+        if (!biometric) {
+            tg.showAlert("Biometric not supported on this device");
+            return;
+        }
 
         try {
             const access = await biometric.requestAccess();
-            if (access){
-            await biometric.authenticate({
-                reason : "Please Confirm"
-            })
-            tg.HapticFeedback.notificationOccurred("success");
-            }else  {
-                tg.showAlert("access Denied");
+            if (access) {
+                await biometric.authenticate({
+                    reason: "Please confirm to proceed",
+                });
+
+                tg.HapticFeedback.notificationOccurred("success");
+                tg.showAlert("Authentication successful!");
+                console.log("Biometric success ✅");
+
+                // اینجا می‌تونی تراکنش یا claim رو اجرا کنی
+            } else {
+                tg.showAlert("Access denied");
             }
-        }catch  {
+        } catch (err) {
+            console.log("Biometric failed:", err);
             tg.HapticFeedback.notificationOccurred("error");
             tg.showAlert("Biometric authentication failed");
         }
-    }
+    };
 
     return (
         <div>
-            <button onClick={() => authHandler()}>تایید تراکنش</button>
+            <button
+                onClick={authHandler}
+                className="px-4 py-2 bg-blue-500 text-white rounded"
+            >
+                تایید تراکنش
+            </button>
         </div>
     );
 }
 
-export default BiometricManger;
+export default BiometricManager;
