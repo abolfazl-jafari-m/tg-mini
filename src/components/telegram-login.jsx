@@ -32,10 +32,10 @@ function TelegramLogin() {
 
 
     return (
-        <>
+        <div className={"relative inline-block"}>
             <div ref={containerRef} id={"telegram-login-btn"} className={"p-2 inset-0 absolute z-10"}></div>
             <button className={"bg-sky-700 rounded-md px-4 py-1 cursor-pointer text-white text-sm"}>ورود با تلگرام</button>
-        </>
+        </div>
     );
 }
 
