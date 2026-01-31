@@ -25,25 +25,36 @@ function Home() {
         tg.HapticFeedback.impactOccurred("heavy");
     };
 
-    const handleLocation = async ()=>{
+    const handleLocation = async () => {
+        if (!tg) return;
 
-        if (tg?.LocationManager.isLocationAvailable){
-            try {
-            tg.LocationManager.init();
-            const res = await tg.LocationManager.requestLocation();
-            tg.showPopup(`${res.latitude}` `${res.longitude}` `${res.accuracy}`);
+        try {
+            // همیشه اول init
+            tg.LocationManager?.init?.();
 
-            }catch {
-                tg.showAlert("somethings wrong...")
+            // حالا وضعیت‌ها قابل اعتمادترن
+            if (!tg.LocationManager?.isLocationAvailable) {
+                tg.showAlert(
+                    `Location not available. platform=${tg.platform} version=${tg.version}`
+                );
+                return;
             }
-        }else {
-            tg.showAlert("Location Not Available");
-        }
-    }
 
-    const handleSetting = ()=>{
-        tg?.LocationManager?.openSettings()
-    }
+            const res = await tg.LocationManager.requestLocation();
+
+            tg.showPopup({
+                title: "📍 Location",
+                message: `Lat: ${res.latitude}\nLng: ${res.longitude}\nAcc: ${res.accuracy ?? "?"}`,
+                buttons: [{ type: "ok" }],
+            });
+        } catch (e) {
+            tg.showAlert(e?.message || "Something went wrong / cancelled");
+        }
+    };
+
+    const handleSetting = () => {
+        tg?.openLocationSettings?.();
+    };
 
     return (
         <>
