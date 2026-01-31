@@ -25,6 +25,25 @@ function Home() {
         tg.HapticFeedback.impactOccurred("heavy");
     };
 
+    const handleLocation = async ()=>{
+
+        if (tg?.LocationManager.isLocationAvailable){
+            try {
+            tg.LocationManager.init();
+            const res = await tg.LocationManager.requestLocation();
+            tg.showPopup(`${res.latitude}` `${res.longitude}` `${res.accuracy}`);
+
+            }catch {
+                tg.showAlert("somethings wrong...")
+            }
+        }else {
+            tg.showAlert("Location Not Available");
+        }
+    }
+
+    const handleSetting = ()=>{
+        tg?.LocationManager?.openSettings()
+    }
 
     return (
         <>
@@ -48,6 +67,8 @@ function Home() {
                             onClick={handleHaptic}>shake it
                     </button>
                     <BiometricManger/>
+                    <button onClick={handleLocation} className={"bg-amber-900 text-white px-4 py-0.5 rounded-md"}>Share Location</button>
+                    <button onClick={handleSetting} className={"bg-amber-900 text-white px-4 py-0.5 rounded-md"}>Open Location setting</button>
                 </div>
             </section>
         </>
