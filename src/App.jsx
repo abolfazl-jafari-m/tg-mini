@@ -14,6 +14,13 @@ function App() {
             tg.showAlert("permission denied");
         }
     }
+    const handleHaptic = () => {
+        if (!tg?.HapticFeedback) {
+            tg?.showAlert("HapticFeedback not supported");
+            return;
+        }
+        tg.HapticFeedback.impactOccurred("heavy");
+    };
 
 
     return (
@@ -34,7 +41,7 @@ function App() {
                             onClick={handleContact}>request Contacts
                     </button>
                     <button className={"border-white rounded-md px-4 py-0.5 bg-yellow-800 text-white"}
-                            onClick={()=>tg.HapticFeedback.impactOccurred("heavy")}>shake it
+                            onClick={handleHaptic}>shake it
                     </button>
                     <BiometricManger/>
                 </div>

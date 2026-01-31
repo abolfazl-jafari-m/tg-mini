@@ -44,7 +44,7 @@ function BiometricManager() {
     return (
             <button
                 onClick={authHandler}
-                className="px-4 py-1 bg-blue-500 text-white rounded mx-auto"
+                className="px-4 py-0.5 bg-blue-500 text-white rounded"
             >
                 تایید تراکنش
             </button>
