@@ -28,7 +28,7 @@ function TelegramLogin() {
     return (
         <>
         <div  ref={ref} id={"telegram-login-btn"} className={"p-2 hidden opacity-0 absolute -z-50"}></div>
-        <button className={"text-white bg-sky-700 rounded-lg px-4 py-1 shadow"} onClick={()=>ref.current?.click()}>ورود با تلگرام</button>
+        <button className={"text-white bg-sky-700 rounded-lg px-4 py-1 shadow cursor-pointer"} onClick={()=>console.log("hi")}>ورود با تلگرام</button>
         </>
     );
 }
