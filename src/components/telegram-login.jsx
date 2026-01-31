@@ -14,7 +14,7 @@ function TelegramLogin() {
 
         script.setAttribute("data-telegram-login", "ajm_test_bot");
         script.setAttribute("data-size", "small");
-        script.setAttribute("data-userpic", "false");
+        script.setAttribute("data-userpic", "true");
         script.setAttribute("data-request-access", "write");
         script.setAttribute("data-onauth", "onTelegramAuth(user)");
 
@@ -25,7 +25,7 @@ function TelegramLogin() {
         }
     }, []);
     return (
-        <div id={"telegram-login-btn"}></div>
+        <div id={"telegram-login-btn"} className={"p-2"}></div>
     );
 }
 
