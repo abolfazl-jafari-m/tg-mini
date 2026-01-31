@@ -11,10 +11,15 @@ function BiometricManger() {
         const biometric = tg.BiometricManager;
 
         try {
+            const access = await biometric.requestAccess();
+            if (access){
             await biometric.authenticate({
                 reason : "Please Confirm"
             })
             tg.HapticFeedback.notificationOccurred("success");
+            }else  {
+                tg.showAlert("access Denied");
+            }
         }catch  {
             tg.HapticFeedback.notificationOccurred("error");
             tg.showAlert("Biometric authentication failed");
