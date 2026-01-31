@@ -5,6 +5,7 @@ import BiometricManger from "./components/biometricManger.jsx";
 
 function App() {
     const tg = useTelegram();
+    console.log(window.Telegram.WebApp.version);
 
     const handleContact = async () => {
         if (!tg) return;
@@ -29,7 +30,7 @@ function App() {
                 <h1 className={"text-green-700 font-semibold text-xl"}>Mini App Test</h1>
                 <UserInfo/>
             </header>
-            <section className={"my-2"}>
+            <section className={"my-2 px-4"}>
                 <h3>test features</h3>
                 <div className={"grid grid-cols-1 gap-2"}>
                     <button className={"text-white bg-gray-800 rounded-md px-4 py-0"} onClick={() => safe(tg.showPopup({
