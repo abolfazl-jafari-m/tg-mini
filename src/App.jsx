@@ -30,7 +30,7 @@ function App() {
                         message: "this is a test for popup"
                     }), null)}>show popup
                     </button>
-                    <button className={"border-white rounded-2xl px-4 py-0.5 bg-rose-800 text-white"}
+                    <button className={"border-white rounded-md px-4 py-0.5 bg-rose-800 text-white"}
                             onClick={handleContact}>request Contacts
                     </button>
 
