@@ -2,6 +2,10 @@ import React, {useEffect, useRef} from 'react';
 
 function TelegramLogin() {
     useEffect(() => {
+        if (!containerRef.current) return ;
+        containerRef.current.innerHTML = "";
+
+
         window.onTelegramAuth = async (user) => {
             console.log("Telegram user:", user);
         }
@@ -26,13 +30,11 @@ function TelegramLogin() {
     }, []);
     const containerRef = useRef(null);
 
-    const handleAuth = () => {
-        containerRef.current?.click()
-    }
+
     return (
         <>
-            <div ref={containerRef} id={"telegram-login-btn"} className={"p-2 opacity-0 absolute -z-40"}></div>
-            <button onClick={handleAuth} className={"bg-sky-700 rounded-md px-4 py-1"}>ورود با تلگرام</button>
+            <div ref={containerRef} id={"telegram-login-btn"} className={"p-2 inset-0 absolute z-10"}></div>
+            <button className={"bg-sky-700 rounded-md px-4 py-1 cursor-pointer text-white text-sm"}>ورود با تلگرام</button>
         </>
     );
 }
