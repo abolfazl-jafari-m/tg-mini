@@ -1,4 +1,4 @@
-import {useTelegram} from "../hooks/useTelegram";
+import {useTelegram} from "../hooks/useTelegram.js";
 
 function UserInfo() {
     const tg = useTelegram();
@@ -13,8 +13,9 @@ function UserInfo() {
             <li>
                 <p>{tg.initDataUnsafe.user.last_name}</p>
                 <p>نام خانوادگی : </p>
-            </li>  <li>
-                <p>{tg.initDataUnsafe.user.username}</p>
+            </li>
+            <li>
+                <p>{tg.initDataUnsafe.user.username ?? "unset"}</p>
                 <p>یورزنیم : </p>
             </li>  <li>
                 <img src={tg.initDataUnsafe.user.photo_url} className={"size-10 rounded-full"} />

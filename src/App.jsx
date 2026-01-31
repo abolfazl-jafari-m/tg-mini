@@ -1,6 +1,6 @@
-import {useTelegram} from "./hooks/useTelegram.ts";
+import {useTelegram} from "./hooks/useTelegram.js";
 import {safe} from "./lib/helper.ts";
-import UserInfo from "./components/userInfo.tsx";
+import UserInfo from "./components/userInfo.jsx";
 
 function App() {
   const tg = useTelegram();
