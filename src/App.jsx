@@ -31,7 +31,7 @@ function App() {
             </header>
             <section className={"my-2"}>
                 <h3>test features</h3>
-                <div className={"grid grid-cols-2 gap-2"}>
+                <div className={"grid grid-cols-1 gap-2"}>
                     <button className={"text-white bg-gray-800 rounded-md px-4 py-0"} onClick={() => safe(tg.showPopup({
                         title: "test",
                         message: "this is a test for popup"
