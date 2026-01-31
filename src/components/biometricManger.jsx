@@ -9,6 +9,11 @@ function BiometricManager() {
     const authHandler = async () => {
         const biometric = tg.BiometricManager;
 
+        if (!tg.BiometricManager?.isAvailable) {
+            tg.showAlert("Biometric not supported on this device");
+            return;
+        }
+
         if (!biometric) {
             tg.showAlert("Biometric not supported on this device");
             return;
