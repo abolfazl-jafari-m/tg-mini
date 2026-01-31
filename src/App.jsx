@@ -33,10 +33,12 @@ function App() {
                     <button className={"border-white rounded-md px-4 py-0.5 bg-rose-800 text-white"}
                             onClick={handleContact}>request Contacts
                     </button>
-
+                    <button className={"border-white rounded-md px-4 py-0.5 bg-yellow-800 text-white"}
+                            onClick={()=>tg.impactOccurred("heavy")}>shake it
+                    </button>
+                    <BiometricManger/>
                 </div>
             </section>
-            <BiometricManger/>
         </>
     )
 }
