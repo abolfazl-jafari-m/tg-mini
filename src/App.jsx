@@ -1,6 +1,7 @@
-import {useTelegram} from "./hooks/useTelegram.ts";
+import {useTelegram} from "./hooks/useTelegram.js";
 import {safe} from "./lib/helper.ts";
-import UserInfo from "./components/userInfo.tsx";
+import UserInfo from "./components/userInfo.jsx";
+import BiometricManger from "./components/biometricManger.jsx";
 
 function App() {
   const tg = useTelegram();
@@ -22,6 +23,7 @@ function App() {
         <button className={"border-white rounded-2xl px-4 py-0.5 bg-rose-800 text-white"} onClick={handleContact}>request Contacts</button>
         <br/>
         <UserInfo />
+        <BiometricManger />
     </>
   )
 }
