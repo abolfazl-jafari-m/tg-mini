@@ -9,7 +9,7 @@ function Oauth() {
     return (
         <div>
             {/*<TelegramLogin/>*/}
-            <LoginButton botUsername={"ajm_test_bot"} onAuthCallback={handleAuth}/>
+            {/*<LoginButton botUsername={"ajm_test_bot"} onAuthCallback={handleAuth}/>*/}
         </div>
     );
 }

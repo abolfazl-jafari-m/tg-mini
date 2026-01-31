@@ -3,6 +3,7 @@ import {safe} from "../lib/helper.ts";
 import UserInfo from "../components/userInfo.jsx";
 import BiometricManger from "../components/biometricManger.jsx";
 import {Link} from "react-router";
+import TelegramLogin from "../components/telegram-login.jsx";
 
 function Home() {
     const tg = useTelegram();
@@ -29,7 +30,7 @@ function Home() {
         <>
             <header className={"flex items-center justify-between px-2 py-2 bg-gray-300"}>
                 <h1 className={"text-green-700 font-semibold text-xl"}>Mini App Test</h1>
-                <Link to={"/oauth"}>Go to OAuth</Link>
+                <TelegramLogin />
                 <UserInfo/>
             </header>
             <section className={"my-2 px-4"}>
