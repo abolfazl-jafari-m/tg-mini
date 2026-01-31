@@ -42,7 +42,7 @@ function BiometricManager() {
     };
 
     return (
-        <div className={"my-2"}>
+        <div className={"my-2 w-full"}>
             <button
                 onClick={authHandler}
                 className="px-4 py-2 bg-blue-500 text-white rounded mx-auto"

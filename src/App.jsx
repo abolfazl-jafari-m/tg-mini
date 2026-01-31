@@ -18,7 +18,7 @@ function App() {
 
     return (
         <>
-            <header className={"flex items-center justify-between px-2"}>
+            <header className={"flex items-center justify-between px-2 py-2 bg-gray-300"}>
                 <h1 className={"text-green-700 font-semibold text-xl"}>Mini App Test</h1>
                 <UserInfo/>
             </header>
@@ -35,7 +35,6 @@ function App() {
                     </button>
 
                 </div>
-
             </section>
             <BiometricManger/>
         </>

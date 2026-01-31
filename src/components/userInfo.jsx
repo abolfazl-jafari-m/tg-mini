@@ -5,7 +5,7 @@ function UserInfo() {
 
     if (!tg && !(tg?.initDataUnsafe)) return null;
     return (
-        <div className={"flex flex-col gap-2"}>
+        <div className={"flex flex-col gap-0.5"}>
             <div className={"flex items-center gap-1"}>
                 <img src={tg.initDataUnsafe.user.photo_url} className={"size-10 rounded-full"}/>
                 <p>{tg.initDataUnsafe.user.username ?? ""}</p>
