@@ -29,10 +29,9 @@ function Home() {
         if (!tg) return;
 
         try {
-            // همیشه اول init
+
             tg.LocationManager?.init?.();
 
-            // حالا وضعیت‌ها قابل اعتمادترن
             if (!tg.LocationManager?.isLocationAvailable) {
                 tg.showAlert(
                     `Location not available. platform=${tg.platform} version=${tg.version}`
@@ -56,6 +55,19 @@ function Home() {
         tg?.openLocationSettings?.();
     };
 
+    const tgDebug = ()=>{
+        tg?.showPopup?.({
+        title: "TG Debug",
+        message:
+            `platform: ${tg?.platform}\n` +
+            `version: ${tg?.version}\n` +
+            `has LocationManager: ${!!tg?.LocationManager}\n` +
+            `has getLocation: ${!!tg?.LocationManager?.getLocation}\n` +
+            `has openSettings: ${!!tg?.LocationManager?.openSettings}\n` +
+            `has requestLocation: ${!!tg?.LocationManager?.requestLocation}`,
+        buttons: [{ type: "ok" }],
+    });
+    }
     return (
         <>
             <header className={"flex items-center justify-between px-2 py-2 bg-gray-300"}>
@@ -80,6 +92,7 @@ function Home() {
                     <BiometricManger/>
                     <button onClick={handleLocation} className={"bg-amber-900 text-white px-4 py-0.5 rounded-md"}>Share Location</button>
                     <button onClick={handleSetting} className={"bg-amber-900 text-white px-4 py-0.5 rounded-md"}>Open Location setting</button>
+                    <button onClick={tgDebug} className={"bg-amber-900 text-white px-4 py-0.5 rounded-md"}>Debug</button>
                 </div>
             </section>
         </>
