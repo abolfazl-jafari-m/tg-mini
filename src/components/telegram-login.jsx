@@ -24,9 +24,15 @@ function TelegramLogin() {
             window.onTelegramAuth = undefined;
         }
     }, []);
+    const containerRef = useRef(null);
+
+    const handleAuth = () => {
+        containerRef.current?.click()
+    }
     return (
         <>
-        <div   id={"telegram-login-btn"} className={"p-2"}></div>
+            <div ref={containerRef} id={"telegram-login-btn"} className={"p-2 opacity-0 absolute -z-40"}></div>
+            <button onClick={handleAuth} className={"bg-sky-700 rounded-md px-4 py-1"}>ورود با تلگرام</button>
         </>
     );
 }
